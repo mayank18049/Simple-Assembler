@@ -28,7 +28,7 @@ def main():
 	symbolPopulator.resolveSymbols()
 	
 	# Dump binary
-	binGen = BinGen(symbolPopulator.populatedCode)
+	binGen = BinGen(symbolPopulator.populatedCode, codeGen.generatedInstTypes)
 	binGen.dump()
 
 

@@ -38,6 +38,7 @@ class CodeGen:
 
     symbolTable = SymbolTable()
     generatedCode = []
+    generatedInstTypes = []
     halted = False
     instNum = 0
     hasError = False
@@ -90,5 +91,8 @@ class CodeGen:
                 self.instNum += 1
                 if sentenceType in ["TypeA_EP", "TypeB_EP", "TypeC_EP", "TypeD_EP", "TypeE_EP", "TypeF_EP"]:
                     self.generatedCode.append(tokens)
+                    self.generatedInstTypes.append(sentenceType[4])
                 else:
                     self.generatedCode.append(tokens[1:])
+                    self.generatedInstTypes.append(sentenceType[5])
+

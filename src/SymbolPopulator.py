@@ -51,6 +51,3 @@ class SymbolPopulator:
                 else:
                     print(bcolors.FAIL + "ERROR: Label \"" + labelName + "\" is not defined on line " + str(line_num) + ". " + bcolors.ENDC)
                     exit(-1)
-
-        for c in self.populatedCode:
-            print(c)
