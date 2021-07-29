@@ -1,7 +1,7 @@
-## Simple-Assembler
+# Simple-Assembler
 A Simple assembler for a custom ISA
 
-# How to run
+## How to run
 Execute the `run` file. Pass the assembly code via `stdin`:
 
 ```sh
