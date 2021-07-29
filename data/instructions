@@ -1,0 +1,4 @@
+#instruction_name Opcode
+add 00000
+sub 00001
+# Fill more
