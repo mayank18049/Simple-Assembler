@@ -1,4 +1,4 @@
-# Performs Lexical analysis on a line of code
+# Performs Lexical Analysis on a line of code
 import re
 from utils.colors import bcolors
 

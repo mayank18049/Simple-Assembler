@@ -1,4 +1,4 @@
-# Performs Lexical analysis on a line of code
+# Performs Synatax Analysis on a line of code
 from utils.colors import bcolors
 
 class ParseTree:
