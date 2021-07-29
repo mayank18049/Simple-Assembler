@@ -85,6 +85,20 @@ class SemanticsAnalyser:
 
         return correct
 
+    def verifyImmidiate(self, line_num, sentence_type, tokens):
+        immVal = None
+        if sentence_type == "TypeB_EP":
+            immVal = int(tokens[2][0])
+        if sentence_type == "LTypeB_EP":
+            immVal = int(tokens[3][0])
+        
+        if(not immVal):
+            return True
+
+        if(immVal > 255):
+             print(bcolors.FAIL + "ERROR: Illegal Immidiate value of \"" + str(immVal) + "\" at line number " + str(line_num) + "." + bcolors.ENDC + bcolors.OKCYAN + " Value must be between 0 and 255 inclusive." + bcolors.ENDC)
+        return True
+
     def isValid(self, line_num, sentence_type, tokens):
         if(not sentence_type):
             return False
@@ -93,4 +107,5 @@ class SemanticsAnalyser:
         valid &= self.verifyVariableDecl(line_num, sentence_type)    
         valid &= self.verifyTypeUsage(line_num, sentence_type, tokens)
         valid &= self.verifyFLAGSUsage(line_num, sentence_type, tokens)
+        valid &= self.verifyImmidiate(line_num, sentence_type, tokens)
         return valid
