@@ -3,18 +3,18 @@ add R0 R1 R2
 sub	R0 R1 R2
 mov	R0 $100
 mov	R1 R2
-mov R10 FLAGS
+mov R5 FLAGS
 ld R5 myvar
 st R5 myvar
-mul R14 R14 R13
-div	R13 R7
+mul R6 R1 R1
+div	R1 R3
 rs R1 $2
 ls R1 $1
 xor	R0 R1 R2		
-or R10 R11 R12
-and R0 R1 R12
-not R7 R14
-cmp	R1 R9
+or R0 R1 R1
+and R0 R1 R2
+not R5 R1
+cmp	R1 R6
 jmp mylabel
 jlt	mylabel
 jgt mylabel

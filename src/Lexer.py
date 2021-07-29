@@ -23,7 +23,7 @@ class Lexer:
                     inst, _, _ = line.split()
                     self.valid_insts.append(inst)
 
-        for i in range(15):
+        for i in range(7):
             self.valid_regs.append("R" + str(i))
         self.valid_regs.append("FLAGS")
 
