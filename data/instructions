@@ -1,6 +1,6 @@
 #instruction_name 	Opcode 	Type
 add					00000	A
-sub					00001	B
+sub					00001	A
 mov					00010	B
 mov					00011	C
 ld					00100	D

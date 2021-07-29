@@ -1,0 +1,14 @@
+var xyz
+var abc
+
+
+hlt R0 R1 R2
+mov	R0 R1 R2
+add	R1 R2
+mov FLAGS R10
+add R1 R2 FLAGS
+add R5 myvar
+sub
+var def
+sub R10 R11
+mov FLAGS FLAGS
