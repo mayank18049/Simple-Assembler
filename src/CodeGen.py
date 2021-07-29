@@ -62,20 +62,6 @@ class CodeGen:
         self.verifyFrontendPass()
         self.checkHalted()
         self.checkCodeSize()
-        for v in self.symbolTable.varDecls:
-            print(v, self.symbolTable.varDecls[v])
-        print("==============")
-        for v in self.symbolTable.varUsage:
-            print(v)
-        print("==============")
-        for v in self.symbolTable.labelDecls:
-            print(v, self.symbolTable.labelDecls[v])
-        print("==============")
-        for v in self.symbolTable.labelUsage:
-            print(v)
-        print("==============")
-        for v in self.generatedCode:
-            print(v)
 
     def generate(self, line_num, frontendPass, sentenceType, tokens):
         self.hasError |= not frontendPass

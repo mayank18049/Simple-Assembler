@@ -24,7 +24,7 @@ def main():
 
 	# Populate Symbols
 	codeGen.verifyCode()
-	symbolPopulator = SymbolPopulator(codeGen.generatedCode, codeGen.symbolTable)
+	symbolPopulator = SymbolPopulator(codeGen.symbolTable, codeGen.generatedCode)
 	symbolPopulator.resolveSymbols()
 	
 	# Dump binary
