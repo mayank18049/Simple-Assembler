@@ -1,14 +1,19 @@
 # main assembler code
-from Lexer import Lexer
 import sys
+
+from Lexer import Lexer
+from SyntaxChecker import SyntaxChecker
 
 
 def main():
 	lexer = Lexer()
-	for line_num, line in enumerate(sys.stdin):
-		print(line.strip("\n"))
-		tokens = lexer.tokenize([line_num, line])
-		print(tokens)
+	syntaxChecker = SyntaxChecker()
+	
+	for line_num, line in enumerate(sys.stdin, 1):
+		tokens = lexer.tokenize(line_num, line)
+		sentenceType = syntaxChecker.parse(line_num, tokens)
+		if(sentenceType):
+			print(line.strip("\n"), "TYPE:", sentenceType)
 
 if __name__ == '__main__':
 	main()
