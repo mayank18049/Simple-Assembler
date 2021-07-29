@@ -103,7 +103,7 @@ class ParseTree:
                     foundNextNode = True
 
             if(not foundNextNode):
-                print(bcolors.FAIL + "ERROR: Illegal usage at line " + str(line_num) + bcolors.ENDC)
+                print(bcolors.FAIL + "ERROR: Syntax error at line " + str(line_num) + bcolors.ENDC)
                 return None
 
         endpointCount = 0

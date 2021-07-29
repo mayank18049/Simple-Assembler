@@ -20,7 +20,7 @@ class Lexer:
         with open("data/instructions", 'r') as insts:
             for line in insts:
                 if(line[0] != "#"):
-                    inst, _ = line.split()
+                    inst, _, _ = line.split()
                     self.valid_insts.append(inst)
 
         for i in range(15):
@@ -45,7 +45,11 @@ class Lexer:
             elif(w in self.valid_regs):
                 tokens.append([w, self.valid_tokens[3]])
             elif(w[0] == "$"):
-                tokens.append([w[1:], self.valid_tokens[4]])
+                if(re.match('^[0-9]*$', w[1:])):
+                    tokens.append([w[1:], self.valid_tokens[4]])
+                else:
+                    print(bcolors.FAIL + "ERROR: Illegal Immidiate Format \"" + w + "\" found in line " + str(line_num) + "." + bcolors.ENDC + bcolors.OKCYAN + " Correct usage: $<number <=255 and >=0>" + bcolors.ENDC)
+                    return None
             elif(re.match('^[0-9_a-zA-Z]*$', w)):
                 tokens.append([w, self.valid_tokens[5]])
             else:

@@ -1,10 +1,12 @@
 var xyz
 add R0 R1 R2
 add R0 $100
+add R0 $ab1211
 add R0 R1
 add R0 myvar
 add xyz
 add
+agagag
 label:
 mylabel: add R0 R1 R2
 mylabel: add R0 $100
