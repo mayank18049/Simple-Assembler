@@ -104,7 +104,7 @@ class SemanticsAnalyser:
             return False
 
         valid = True
-        valid &= self.verifyVariableDecl(line_num, sentence_type)    
+        valid &= self.verifyVariableDecl(line_num, sentence_type)
         valid &= self.verifyTypeUsage(line_num, sentence_type, tokens)
         valid &= self.verifyFLAGSUsage(line_num, sentence_type, tokens)
         valid &= self.verifyImmidiate(line_num, sentence_type, tokens)

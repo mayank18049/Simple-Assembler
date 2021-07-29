@@ -19,10 +19,11 @@ def main():
 		if(not line.isspace()):
 			tokens = lexer.tokenize(line_num, line)
 			sentenceType = syntaxChecker.parse(line_num, tokens)
-			frontendPass = semanticsAnalyser.isValid(line_num,sentenceType, tokens)
-			codeGen.generate(frontendPass, tokens)
+			frontendPass = semanticsAnalyser.isValid(line_num, sentenceType, tokens)
+			codeGen.generate(line_num, frontendPass, sentenceType, tokens)
 
 	# Populate Symbols
+	codeGen.verifyCode()
 	symbolPopulator = SymbolPopulator(codeGen.generatedCode, codeGen.symbolTable)
 	symbolPopulator.resolveSymbols()
 	
