@@ -68,6 +68,14 @@ class CodeGen:
         self.hasError |= not frontendPass
         
         if(not self.hasError):
+
+            if self.halted:     # There should be no instructions after halt
+                print(bcolors.FAIL + "ERROR: Instructions found after \"hlt\" on line " + str(line_num) + "." + bcolors.ENDC)
+                exit(-1)
+
+            if sentenceType in ["TypeF_EP", "LTypeF_EP"]:  # Halt was just encountered
+                self.halted = True             
+
             # Add declartions symbol table
             if sentenceType == "VarDecl_EP":
                 self.symbolTable.addVarDecl(tokens[1][0], line_num)

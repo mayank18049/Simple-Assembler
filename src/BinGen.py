@@ -16,8 +16,8 @@ class BinGen:
         with open("data/instructions", 'r') as insts:
             for line in insts:
                 if(line[0] != "#"):
-                    inst, opcode, _ = line.split()
-                    self.opcodeTable[inst] = opcode
+                    inst, opcode, instType = line.split()
+                    self.opcodeTable[inst + instType] = opcode
 
         for i in range(7):
             regName = "R" + str(i)
@@ -32,22 +32,22 @@ class BinGen:
         self.populateTables()
 
     def handleA(self, tokens):
-        print(self.opcodeTable[tokens[0][0]] + ("0"*2) +  self.regTable[tokens[1][0]] + self.regTable[tokens[2][0]] + self.regTable[tokens[3][0]], end="")
+        print(self.opcodeTable[tokens[0][0] + "A"] + ("0"*2) +  self.regTable[tokens[1][0]] + self.regTable[tokens[2][0]] + self.regTable[tokens[3][0]], end="")
 
     def handleB(self, tokens):
-        print(self.opcodeTable[tokens[0][0]] + self.regTable[tokens[1][0]] + self.encode(tokens[2][0], 8), end="")
+        print(self.opcodeTable[tokens[0][0] + "B"] + self.regTable[tokens[1][0]] + self.encode(tokens[2][0], 8), end="")
 
     def handleC(self, tokens):
-        print(self.opcodeTable[tokens[0][0]] + ("0"*5) + self.regTable[tokens[1][0]] + self.regTable[tokens[2][0]], end="")
+        print(self.opcodeTable[tokens[0][0] + "C"] + ("0"*5) + self.regTable[tokens[1][0]] + self.regTable[tokens[2][0]], end="")
     
     def handleD(self, tokens):
-        print(self.opcodeTable[tokens[0][0]] + self.regTable[tokens[1][0]] + self.encode(tokens[2][0], 8), end="")
+        print(self.opcodeTable[tokens[0][0] + "D"] + self.regTable[tokens[1][0]] + self.encode(tokens[2][0], 8), end="")
 
     def handleE(self, tokens):
-        print(self.opcodeTable[tokens[0][0]] + ("0"*3) + self.encode(tokens[1][0], 8), end="")
+        print(self.opcodeTable[tokens[0][0] + "E"] + ("0"*3) + self.encode(tokens[1][0], 8), end="")
 
     def handleF(self, tokens):
-        print(self.opcodeTable['hlt'] + ("0"*11), end="")
+        print(self.opcodeTable['hltF'] + ("0"*11), end="")
 
 
     def dump(self):
