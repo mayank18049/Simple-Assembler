@@ -96,7 +96,8 @@ class SemanticsAnalyser:
             return True
 
         if(immVal > 255):
-             print(bcolors.FAIL + "ERROR: Illegal Immidiate value of \"" + str(immVal) + "\" at line number " + str(line_num) + "." + bcolors.ENDC + bcolors.OKCYAN + " Value must be between 0 and 255 inclusive." + bcolors.ENDC)
+            print(bcolors.FAIL + "ERROR: Illegal Immidiate value of \"" + str(immVal) + "\" at line number " + str(line_num) + "." + bcolors.ENDC + bcolors.OKCYAN + " Value must be between 0 and 255 inclusive." + bcolors.ENDC)
+            return False
         return True
 
     def isValid(self, line_num, sentence_type, tokens):
