@@ -1,0 +1,3 @@
+label:
+jmp label
+hlt
