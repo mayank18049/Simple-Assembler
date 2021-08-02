@@ -1,3 +1,5 @@
+mov R1 $4
+mov R2 $2
 div R1 R2
 div R1 R2
 div R1 R2
