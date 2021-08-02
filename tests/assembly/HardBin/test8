@@ -1,9 +1,0 @@
-mov R0, #10
-mov R1, #5
-sub R3, R1, R0
-bz  R3, equal
-mov R2, #0	
-bnz R3, exit
-equal :   
-     mov R2 , #1
-exit: hlt
